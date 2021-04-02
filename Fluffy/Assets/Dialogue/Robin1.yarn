@@ -1,0 +1,15 @@
+title: GetMeSomePillows
+tags: 
+colorID: 0
+position: 708,147
+---
+Robin: Hello
+Patchwork: Hi there
+Robin: Have you seen my Fluffy
+Patchwork: What's a fluffy? Sounds like I can make a new pillow out of it for my fort!
+-> Fluffy is my cat!
+    Robin: Noo! Fluffy is my cat! I need him
+-> You can't sew up Fluffy!
+    Robin: Noo! You can't sew up Fluffy
+Patchwork: Idk what I'm doing i just need some dialogue to test things out
+===
