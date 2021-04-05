@@ -1,12 +1,14 @@
 using System.Security.Cryptography;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace Fluffy
 {
     public class ConversationTarget : MonoBehaviour, IInteractable
     {
         [SerializeField] private string promptText;
-        [SerializeField] private DialogueBubble promptPrefab;
+
+        [SerializeField] private DialogueRunner dialogueRunner;
         [SerializeField] private Transform dialogueBubbleAnchor;
 
         private DialogueBubble prompt;
@@ -18,8 +20,8 @@ namespace Fluffy
                 Destroy(prompt.gameObject);
             }
             
-            prompt = Instantiate(promptPrefab, dialogueBubbleAnchor, false);
-            prompt.Text = promptText;
+            // prompt = Instantiate(promptPrefab, dialogueBubbleAnchor, false);
+            // prompt.Text = promptText;
         }
 
         public void OnUntargeted()
@@ -30,7 +32,7 @@ namespace Fluffy
             }
         }
 
-        public void StartInteraction() { }
+        public void StartInteraction(GameObject interactor) { }
 
         public void EndInteraction() { }
     }

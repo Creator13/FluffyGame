@@ -35,11 +35,11 @@ namespace CameraBounding
         [HideInInspector] public Vector2 maxXlimit;
         [HideInInspector] public Vector2 maxYlimit;
 
-        Camera _camera;
+        [SerializeField] private Camera _camera;
 
-        public void Initialize(Camera camera)
+        public void Initialize()
         {
-            _camera = camera;
+            // _camera = camera;
             CalculateBounds();
         }
 
@@ -55,13 +55,6 @@ namespace CameraBounding
                 (transform.position.x + offset.x + (scaleBound.x / 2)) - cameraHalfWidth);
             maxYlimit = new Vector2((transform.position.y + offset.y - (scaleBound.y / 2)) + _camera.orthographicSize,
                 (transform.position.y + offset.y + (scaleBound.y / 2)) - _camera.orthographicSize);
-        }
-
-        public void OnDrawGizmos()
-        {
-            Gizmos.color= Color.red;
-            Gizmos.DrawWireCube(transform.position + new Vector3(offset.x, offset.y, 0), scaleBound);
-            // Gizmos.DrawWireCube();
         }
     }
 }

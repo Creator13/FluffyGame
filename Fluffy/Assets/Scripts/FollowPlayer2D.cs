@@ -25,16 +25,26 @@ namespace Fluffy
                 targetPos.x += XYOffset.x;
                 targetPos.y += XYOffset.y;
 
-                targetPos.x = Mathf.Clamp(targetPos.x, bounds.maxXlimit.x, bounds.maxXlimit.y);
-                targetPos.y = Mathf.Clamp(targetPos.y, bounds.maxYlimit.x, bounds.maxYlimit.y);
+                targetPos.x = Mathf.Clamp(targetPos.x, Bounds.maxXlimit.x, Bounds.maxXlimit.y);
+                targetPos.y = Mathf.Clamp(targetPos.y, Bounds.maxYlimit.x, Bounds.maxYlimit.y);
 
                 return targetPos;
             }
         }
 
+        public CameraBounds2D Bounds
+        {
+            private get => bounds;
+            set
+            {
+                bounds = value;
+                bounds.Initialize();
+            }
+        }
+
         private void Awake()
         {
-            bounds.Initialize(GetComponent<Camera>());
+            bounds.Initialize();
         }
 
         private void Start()

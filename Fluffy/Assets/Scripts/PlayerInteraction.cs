@@ -6,11 +6,14 @@ using UnityEngine.InputSystem;
 
 namespace Fluffy
 {
-    [RequireComponent(typeof(CharacterController2D), typeof(PlayerInput))]
+    [RequireComponent(typeof(CharacterController2D), typeof(PlayerInput), typeof(Animator))]
     public class PlayerInteraction : MonoBehaviour
     {
+        private static readonly int Speed = Animator.StringToHash("Speed");
+        
         private CharacterController2D controller;
         private PlayerInput input;
+        private Animator animator;
 
         [SerializeField] private float moveSpeedMultiplier = 1;
         [SerializeField] private float interactionRange = 3;
@@ -24,6 +27,7 @@ namespace Fluffy
         {
             controller = GetComponent<CharacterController2D>();
             input = GetComponent<PlayerInput>();
+            animator = GetComponent<Animator>();
 
             SetupInput();
         }
@@ -47,6 +51,7 @@ namespace Fluffy
         private void UpdateMove()
         {
             move = input.actions["Walk"].ReadValue<float>() * moveSpeedMultiplier;
+            animator.SetFloat(Speed, Mathf.Abs(move));
         }
 
         private void PerformMove()
@@ -79,7 +84,10 @@ namespace Fluffy
 
         private void Interact(InputAction.CallbackContext ctx)
         {
+            if (interactionTarget == null) return;
+            
             Debug.Log("Interacting");
+            interactionTarget.StartInteraction(gameObject);
         }
 
         private void OnDrawGizmosSelected()
