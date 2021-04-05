@@ -1,45 +1,36 @@
-using System.Security.Cryptography;
 using UnityEngine;
 using Yarn.Unity;
 
 namespace Fluffy
 {
-    public class ConversationTarget : MonoBehaviour, IInteractable
+    public class ConversationTarget : Interactable
     {
         [SerializeField] private string promptText;
+        [SerializeField] private InteractionPromptProvider interactionPromptProvider;
 
         [SerializeField] private DialogueRunner dialogueRunner;
         [SerializeField] private string dialogueStartNode;
+        [SerializeField] private Vector2 interactionBubbleOffset;
 
-        private DialogueBubble prompt;
+        public override Vector2 InteractionBubbleOffset => interactionBubbleOffset;
         
-        public void OnTargeted()
+        public override void OnTargeted()
         {
-            if (prompt)
-            {
-                Destroy(prompt.gameObject);
-            }
+            interactionPromptProvider.ShowPrompt(this, promptText);
+        }
+
+        public override void OnUntargeted()
+        {
+            interactionPromptProvider.HidePrompt(this);
+        }
+
+        public override void StartInteraction(GameObject interactor)
+        {
+            interactionPromptProvider.HidePrompt(this);
             
-            // prompt = Instantiate(promptPrefab, dialogueBubbleAnchor, false);
-            // prompt.Text = promptText;
+            dialogueRunner.StartDialogue(dialogueStartNode);
         }
 
-        public void OnUntargeted()
-        {
-            if (prompt)
-            {
-                Destroy(prompt.gameObject);
-            }
-        }
-
-        public void StartInteraction(GameObject interactor)
-        {
-            if (!dialogueRunner.IsDialogueRunning)
-            {
-                dialogueRunner.StartDialogue(dialogueStartNode);
-            }
-        }
-
-        public void EndInteraction() { }
+        public override void EndInteraction() { }
     }
 }

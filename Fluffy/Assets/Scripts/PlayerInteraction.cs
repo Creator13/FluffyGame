@@ -19,8 +19,8 @@ namespace Fluffy
         [SerializeField] private float interactionRange = 3;
         [SerializeField] private LayerMask interactionLayers;
 
-        private List<IInteractable> targetsInRange = new List<IInteractable>();
-        private IInteractable interactionTarget;
+        private List<Interactable> targetsInRange = new List<Interactable>();
+        private Interactable interactionTarget;
         private float move;
 
         private void Start()
@@ -63,20 +63,20 @@ namespace Fluffy
         {
             var overlap = Physics2D.OverlapCircleAll(transform.position, interactionRange, interactionLayers);
             
-            var interactables = overlap.Where(obj => obj.GetComponent<IInteractable>() != null).ToArray();
+            var interactables = overlap.Where(obj => obj.GetComponent<Interactable>() != null).ToArray();
             if (!interactables.Any())
             {
-                interactionTarget?.OnUntargeted();
+                if (interactionTarget != null) interactionTarget.OnUntargeted();
                 interactionTarget = null;
                 return;
             }
             
             interactables = interactables.OrderBy(obj => Vector2.Distance(obj.transform.position, transform.position)).ToArray();
 
-            targetsInRange = interactables.Select(obj => obj.GetComponent<IInteractable>()).ToList();
+            targetsInRange = interactables.Select(obj => obj.GetComponent<Interactable>()).ToList();
             if (interactionTarget != targetsInRange[0])
             {
-                interactionTarget?.OnUntargeted();
+                if (interactionTarget != null) interactionTarget.OnUntargeted();
                 interactionTarget = targetsInRange[0];
                 interactionTarget.OnTargeted();
             }
@@ -84,7 +84,9 @@ namespace Fluffy
 
         private void Interact(InputAction.CallbackContext ctx)
         {
-            interactionTarget?.StartInteraction(gameObject);
+            if (interactionTarget == null) return;
+            
+            interactionTarget.StartInteraction(gameObject);
         }
 
         private void OnDrawGizmosSelected()
