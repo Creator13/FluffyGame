@@ -9,7 +9,7 @@ namespace Fluffy
         [SerializeField] private string promptText;
 
         [SerializeField] private DialogueRunner dialogueRunner;
-        [SerializeField] private Transform dialogueBubbleAnchor;
+        [SerializeField] private string dialogueStartNode;
 
         private DialogueBubble prompt;
         
@@ -32,7 +32,13 @@ namespace Fluffy
             }
         }
 
-        public void StartInteraction(GameObject interactor) { }
+        public void StartInteraction(GameObject interactor)
+        {
+            if (!dialogueRunner.IsDialogueRunning)
+            {
+                dialogueRunner.StartDialogue(dialogueStartNode);
+            }
+        }
 
         public void EndInteraction() { }
     }

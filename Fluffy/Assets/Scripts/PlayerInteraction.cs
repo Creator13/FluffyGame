@@ -84,10 +84,7 @@ namespace Fluffy
 
         private void Interact(InputAction.CallbackContext ctx)
         {
-            if (interactionTarget == null) return;
-            
-            Debug.Log("Interacting");
-            interactionTarget.StartInteraction(gameObject);
+            interactionTarget?.StartInteraction(gameObject);
         }
 
         private void OnDrawGizmosSelected()
