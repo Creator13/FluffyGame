@@ -11,11 +11,23 @@ namespace Utility
 
         public void FadeIn(float time)
         {
+            if (time <= 0)
+            {
+                SetAmount(1);
+                return;
+            }
+
             StartCoroutine(DoFadeIn(time));
         }
 
         public void FadeOut(float time)
         {
+            if (time <= 0)
+            {
+                SetAmount(0);
+                return;
+            }
+
             StartCoroutine(DoFadeOut(time));
         }
 
@@ -33,6 +45,11 @@ namespace Utility
 
 #endif
 
+        private void SetAmount(float amount)
+        {
+            this.amount = amount;
+        }
+        
         private void SetFadeAmount()
         {
             var newColor = background.color;
