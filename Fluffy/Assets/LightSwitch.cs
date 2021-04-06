@@ -1,14 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
 using Fluffy;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class LightSwitch : Interactable
 {
-    public override Vector2 InteractionBubbleOffset { get; }
-    
-    public override void OnTargeted() { }
-    public override void OnUntargeted() { }
-    public override void StartInteraction(GameObject interactor) { }
+    [SerializeField] private List<Light2D> lights;
+    [SerializeField] private bool onlyOnce;
+    [SerializeField] private InteractionPromptProvider interactionPromptProvider;
+
+    private bool canInteract = true;
+
+    private bool LightStatus { get; set; } = false;
+
+    public override Vector2 InteractionBubbleOffset { get; } = Vector2.zero;
+    public override bool InteractionAvailable => canInteract;
+
+    public override void OnTargeted()
+    {
+        interactionPromptProvider.ShowPrompt(this, $"Light {(LightStatus ? "off" : "on")}");
+    }
+
+    public override void OnUntargeted()
+    {
+        interactionPromptProvider.HidePrompt(this);
+    }
+
+    public override void StartInteraction(GameObject interactor)
+    {
+        LightStatus = !LightStatus;
+        
+        foreach (var light in lights)
+        {
+            light.enabled = LightStatus;
+        }
+        
+        if (onlyOnce) canInteract = false;
+    }
     public override void EndInteraction() { }
 }

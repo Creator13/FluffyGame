@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Fluffy
 {
     public abstract class Interactable : MonoBehaviour
     {
         public abstract Vector2 InteractionBubbleOffset { get; }
+        public virtual bool InteractionAvailable { get; } = true;
         
         public abstract void OnTargeted();
         public abstract void OnUntargeted();

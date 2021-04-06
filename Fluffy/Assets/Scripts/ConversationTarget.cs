@@ -13,7 +13,7 @@ namespace Fluffy
         [SerializeField] private Vector2 interactionBubbleOffset;
 
         public override Vector2 InteractionBubbleOffset => interactionBubbleOffset;
-        
+
         public override void OnTargeted()
         {
             interactionPromptProvider.ShowPrompt(this, promptText);
@@ -27,7 +27,7 @@ namespace Fluffy
         public override void StartInteraction(GameObject interactor)
         {
             interactionPromptProvider.HidePrompt(this);
-            
+
             dialogueRunner.StartDialogue(dialogueStartNode);
         }
 

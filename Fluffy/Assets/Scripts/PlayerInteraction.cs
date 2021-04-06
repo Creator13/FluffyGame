@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Brackeys;
@@ -63,7 +64,11 @@ namespace Fluffy
         {
             var overlap = Physics2D.OverlapCircleAll(transform.position, interactionRange, interactionLayers);
             
-            var interactables = overlap.Where(obj => obj.GetComponent<Interactable>() != null).ToArray();
+            var interactables = overlap.Where(obj =>
+            {
+                var interactable = obj.GetComponent<Interactable>();
+                return interactable != null && interactable.InteractionAvailable;
+            }).ToArray();
             if (!interactables.Any())
             {
                 if (interactionTarget != null) interactionTarget.OnUntargeted();
