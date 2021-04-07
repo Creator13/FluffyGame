@@ -1,0 +1,65 @@
+title: MayIEnter
+tags:
+colorID: 0
+position: 0,0
+---
+Robin: Hello? Is anybody home?
+PillowMonster: What do you need? 
+PillowMonster: It's 3am. You woke me up. 
+-> Can I come in?
+    PillowMonster: It's already too crowded in here. What for? 
+-> I need help!
+    PillowMonster: Why do you think I can help you? 
+Robin: I lost Fluffy. I only found his ear! // mild panic
+PillowMonster: Sure, sure. Come in...
+===
+title: TheBargain
+tags: 
+colorID: 0
+position: 50, 0
+---
+PillowMonster: So what's the matter?
+Robin: Have you seen Fluffy? Or some part of him maybe?
+PillowMonster: What does he look like?
+-> He is green.
+    <<SetFluffyProperty color green>>
+-> He is pink.
+    <<SetFluffyProperty color pink>>
+-> He is orange.
+    <<SetFluffyProperty color orange>>
+Robin: Could you take a look at his ear maybe?
+<<ShowItem fluffyEar 1>>
+PillowMonster: What a beautiful earpiece you have there.
+PillowMonster: Beautifully woven... and such vibrant colors! 
+PillowMonster: It just so happens that I lost a piece of my fort recently.
+<<wait 1.5>> // Interactie idee: robin: what happened to it?
+PillowMonster: Maybe I do have some information about Fluffy.
+PillowMonster: I will give it to you if you give me that piece of wonderful ear.
+Robin: I can't give you Fluffy's ear! // Interactie: meerdere reacties?
+Robin: How would he know when to come if he's called?!
+PillowMonster: You can't call him now either, can you?
+Robin: Well...
+PillowMonster: Give it to me! // GEEF DE SPELER KEUZE HIER!! ik weet alleen niet waartussen... misschien is eentje de 'slimme' oplossing en de andere gewoon 'i refuse'
+Robin: What if I found you some pillows for your fort?
+Robin: I'll look around the house for the brightest colors!
+<<wait 1.5>>
+PillowMonster: Fine.
+PillowMonster: Bring me $pillow_count pillows!
+===
+title: IHavePillows
+tags:
+colorID: 0
+position: 100, 0
+---
+Robin: I've found all these pillows!
+Robin: Look how beautiful they are!
+PillowMonster: Hm. They're fine.
+PillowMonster: This one's shiny. I love it!! I mean, it's fine. They're fine.
+PillowMonster: I will tell you what I know.
+PillowMonster: Slimy is chilling in the kitchen sink as we speak.
+PillowMonster: He always knows what's up around the house.
+PillowMonster: When you spend all day in the plumbing, you pick things up, obviously.
+Robin: I will try that!
+Robin: Thank you, thank you, thank you!!
+PillowMonster: Hmpf. You're welcome, little one.
+===
