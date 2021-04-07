@@ -54,7 +54,6 @@ public class LightSwitch : Interactable
             LightOff?.Invoke();
         }
     }
-    public override void EndInteraction() { }
 
     private void UpdateLights()
     {

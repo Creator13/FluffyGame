@@ -11,6 +11,5 @@ namespace Fluffy
         public abstract void OnTargeted();
         public abstract void OnUntargeted();
         public abstract void StartInteraction(GameObject interactor);
-        public abstract void EndInteraction();
     }
 }

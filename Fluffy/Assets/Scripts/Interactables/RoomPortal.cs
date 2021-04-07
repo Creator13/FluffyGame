@@ -31,10 +31,5 @@ namespace Fluffy
             followCamera.Bounds = destinationRoomBounds;
             interactor.transform.position = destinationPosition.position;
         }
-
-        public override void EndInteraction()
-        {
-            // unused
-        }
     }
 }

@@ -7,3 +7,13 @@ Robin: Fluffy...
 Robin: Fluffy?
 Robin: Fluffy!!
 ===
+title: Intro2
+tags:
+colorID: 0
+position: 336,175
+---
+<<ShowItem fluffyEar 2>>
+<<wait 1>>
+Robin: Oh no! Poor Fluffy...
+Robin: I'm gonna find you, Fluffy. No worries
+===

@@ -13,12 +13,15 @@ public class Sequencer : MonoBehaviour
     [SerializeField] private FadeToBlackPanel blackPanel;
     [SerializeField] private DialogueRunner dialogue;
     [SerializeField] private RobinController robin;
+    [SerializeField] private Inventory inventory;
     
     [Header("Intro")] [SerializeField] private PlayableDirector intro;
     [SerializeField] private LightSwitch bedlight;
     [SerializeField] private PlayableDirector whereIsFluffy;
     [SerializeField] private string startNode = "Intro1";
     [SerializeField] private Transform robinStartSpawn;
+    [SerializeField] private ItemPickup fluffysEar;
+    [SerializeField] private string foundEar = "Intro2";
     
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class Sequencer : MonoBehaviour
         Assert.IsNotNull(intro);
         Assert.IsNotNull(bedlight);
         Assert.IsNotNull(whereIsFluffy);
+        Assert.IsNotNull(robinStartSpawn);
+        Assert.IsNotNull(fluffysEar);
 
         SetInitialState();
         
@@ -39,6 +44,7 @@ public class Sequencer : MonoBehaviour
         blackPanel.FadeOut(0);
         interactionController.Deactivate();
         robin.SetSit(true);
+        fluffysEar.gameObject.SetActive(false);
     }
     
     private void OnIntroEnd(PlayableDirector _)
@@ -59,6 +65,7 @@ public class Sequencer : MonoBehaviour
         blackPanel.FadeIn(0);
         dialogue.StartDialogue(startNode);
         whereIsFluffy.Play();
+        
         whereIsFluffy.stopped += FluffyIsLost;
     }
 
@@ -68,7 +75,21 @@ public class Sequencer : MonoBehaviour
         
         robin.SetSit(false);
         robin.Move(robinStartSpawn.position);
+        fluffysEar.gameObject.SetActive(true);
+
+        inventory.Updated += CheckEarPickup;
     }
+
+    private void CheckEarPickup()
+    {
+        if (inventory.Has("fluffyEar"))
+        {
+            inventory.Updated -= CheckEarPickup;
+            
+            dialogue.StartDialogue(foundEar);
+        }
+    }
+    
 
     private IEnumerable Delay(float seconds, Action callback)
     {

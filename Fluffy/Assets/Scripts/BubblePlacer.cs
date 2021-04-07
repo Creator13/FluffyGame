@@ -39,9 +39,16 @@ public class BubblePlacer : MonoBehaviour
     public Canvas canvas;
     public CanvasScaler canvasScaler;
 
+    public float defaultMargin;
+
     private void Awake()
     {
         worldCamera = Camera.main;
+    }
+    
+    public void PlaceBubble(RectTransform bubbleTransform, Vector3 worldPos)
+    {
+        bubbleTransform.anchoredPosition = WorldToAnchoredPosition(bubbleTransform, worldPos, defaultMargin);
     }
 
     public void PlaceBubble(RectTransform bubbleTransform, Vector3 worldPos, float bubbleMargin)

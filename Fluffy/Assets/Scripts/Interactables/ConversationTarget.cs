@@ -30,7 +30,5 @@ namespace Fluffy
 
             dialogueRunner.StartDialogue(dialogueStartNode);
         }
-
-        public override void EndInteraction() { }
     }
 }
