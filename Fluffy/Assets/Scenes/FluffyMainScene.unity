@@ -1083,7 +1083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216646338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.87, y: -1.23, z: 0}
+  m_LocalPosition: {x: 30.07, y: -1.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 511386050}
@@ -1729,6 +1729,7 @@ MonoBehaviour:
   - {fileID: 1695814041}
   - {fileID: 482681853}
   - {fileID: 125117726}
+  - {fileID: 2048505472}
   startNode: GetMeSomePillows
   startAutomatically: 0
   automaticallyContinueLines: 0
@@ -4089,7 +4090,7 @@ GameObject:
   - component: {fileID: 1399538401}
   - component: {fileID: 1399538402}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: WhereIsFluffy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4118,14 +4119,19 @@ PlayableDirector:
   m_GameObject: {fileID: 1399538400}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 11400000, guid: 5fd88b757a8a536419a641c041fa726d, type: 2}
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - fc0af74873aeb874faf11f6582376dbe: {fileID: 2048505472}
+    - 58fc45367a43f084dadd5c2a07e07b5c: {fileID: 2048505472}
+    - 3c165707646cd014cac73b69b3612d90: {fileID: 2048505472}
+    - d819c2e8ef13c2c4ca4e6ffe9caf8225: {fileID: 2048505472}
+    - e99beb53e3464484aa7f04c09d7cab16: {fileID: 2048505472}
 --- !u!1 &1460041714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5344,6 +5350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2048505474}
   - component: {fileID: 2048505473}
+  - component: {fileID: 2048505472}
   m_Layer: 0
   m_Name: Sequencer
   m_TagString: Untagged
@@ -5351,6 +5358,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2048505472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048505471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5884640bff4e4cb296ca0e5350f78703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2048505473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,9 +5384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionController: {fileID: 482681854}
   blackPanel: {fileID: 1120841698}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 469602690}
   intro: {fileID: 913008125}
   bedlight: {fileID: 2090355165}
+  whereIsFluffy: {fileID: 1399538402}
+  startNode: Intro1
 --- !u!4 &2048505474
 Transform:
   m_ObjectHideFlags: 0

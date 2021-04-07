@@ -7,11 +7,11 @@ namespace Fluffy.Timeline
     {
         public TimelineDialogueView dialogueView;
 
-        public override void OnGraphStart(Playable playable)
+        public override void OnBehaviourPlay(Playable playable, FrameData info)
         {
             if (dialogueView != null)
             {
-                dialogueView.ReadyForNextLine();
+                dialogueView.Next();
             }
         }
     }

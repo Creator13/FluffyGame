@@ -10,7 +10,12 @@ namespace Fluffy.Timeline
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
-            return new ScriptPlayable<DialogueControlBehaviour>();
+            var playable = ScriptPlayable<DialogueControlBehaviour>.Create(graph);
+            
+            var dialogueControlBehaviour = playable.GetBehaviour();
+            dialogueControlBehaviour.dialogueView = dialogue.Resolve(graph.GetResolver());
+            
+            return playable;
         }
     }
 }

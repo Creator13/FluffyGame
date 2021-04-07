@@ -15,6 +15,8 @@ public class Sequencer : MonoBehaviour
     
     [Header("Intro")] [SerializeField] private PlayableDirector intro;
     [SerializeField] private LightSwitch bedlight;
+    [SerializeField] private PlayableDirector whereIsFluffy;
+    [SerializeField] private string startNode = "Intro1";
     
     private void Awake()
     {
@@ -22,7 +24,8 @@ public class Sequencer : MonoBehaviour
         Assert.IsNotNull(blackPanel);
         Assert.IsNotNull(intro);
         Assert.IsNotNull(bedlight);
-        
+        Assert.IsNotNull(whereIsFluffy);
+
         SetInitialState();
         
         intro.stopped += OnIntroEnd;
@@ -47,6 +50,8 @@ public class Sequencer : MonoBehaviour
     private void OnLightOn()
     {
         blackPanel.FadeIn(0);
+        dialogue.StartDialogue(startNode);
+        whereIsFluffy.Play();
     }
 
     private IEnumerable Delay(float seconds, Action callback)

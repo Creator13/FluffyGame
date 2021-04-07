@@ -5,6 +5,9 @@ namespace Fluffy.Dialogue
 {
     public class TimelineDialogueView : DialogueViewBase
     {
-        
+        public void Next()
+        {
+            ReadyForNextLine();
+        }
     }
 }
