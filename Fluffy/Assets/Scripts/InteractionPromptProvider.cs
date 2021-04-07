@@ -6,7 +6,7 @@ namespace Fluffy
     [RequireComponent(typeof(BubblePlacer))]
     public class InteractionPromptProvider : MonoBehaviour
     {
-        [FormerlySerializedAs("interactionBubble")] [SerializeField] private InteractionPrompt interactionPrompt;
+        [SerializeField] private InteractionPrompt interactionPrompt;
 
         [SerializeField] private float bubbleMargin = 0.1f;
 

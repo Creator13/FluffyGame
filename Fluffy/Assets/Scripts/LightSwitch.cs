@@ -15,7 +15,7 @@ public class LightSwitch : Interactable
 
     private bool canInteract = true;
 
-    private bool LightStatus { get; set; } = false;
+    [field: SerializeField] private bool LightStatus { get; set; }
 
     public override Vector2 InteractionBubbleOffset { get; } = Vector2.zero;
     public override bool InteractionAvailable => canInteract;
@@ -34,12 +34,16 @@ public class LightSwitch : Interactable
     {
         LightStatus = !LightStatus;
 
-        foreach (var light in lights)
+        UpdateLights();
+
+        if (onlyOnce)
         {
-            light.enabled = LightStatus;
+            canInteract = false;
+            GetComponent<Collider2D>().enabled = false;
         }
         
-        if (onlyOnce) canInteract = false;
+        // Update the prompt
+        interactionPromptProvider.ShowPrompt(this, $"Light {(LightStatus ? "off" : "on")}");
         
         if (LightStatus)
         {
@@ -51,4 +55,17 @@ public class LightSwitch : Interactable
         }
     }
     public override void EndInteraction() { }
+
+    private void UpdateLights()
+    {
+        foreach (var light in lights)
+        {
+            light.enabled = LightStatus;
+        }
+    }
+
+    private void OnValidate()
+    {
+        UpdateLights();
+    }
 }

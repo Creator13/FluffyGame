@@ -17,7 +17,7 @@ namespace Fluffy
         
         public void Deactivate()
         {
-            playerInteraction.enabled = false;
+            // playerInteraction.enabled = false;
 
             input.actions["Walk"].Disable();
             input.actions["Interact"].Disable();
@@ -25,7 +25,7 @@ namespace Fluffy
 
         public void Activate()
         {
-            playerInteraction.enabled = true;
+            // playerInteraction.enabled = true;
 
             input.actions["Walk"].Enable();
             input.actions["Interact"].Enable();
