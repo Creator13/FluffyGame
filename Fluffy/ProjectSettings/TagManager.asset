@@ -38,7 +38,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Background_env
     uniqueID: 2850421981
     locked: 0
   - name: Default
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3777134053
+    locked: 0
+  - name: Foreground_env
+    uniqueID: 1924337741
     locked: 0
   - name: UI
     uniqueID: 2894709459

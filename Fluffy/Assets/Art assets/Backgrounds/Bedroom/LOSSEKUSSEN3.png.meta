@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 82bc1c5b7580ba74ba2db98666a711c7
+guid: 91b77a3f144af6a428e4c1aef56d6e51
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6851067119794808209
-    second: Talking broccoli monster_05-04-2021_0
-  - first:
-      213: -683665374090877235
-    second: Talking broccoli monster_05-04-2021_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,51 +123,21 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Talking broccoli monster_05-04-2021_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 466
-        height: 438
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6a9548c0ce1ce0a0800000000000000
-      internalID: -6851067119794808209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Talking broccoli monster_05-04-2021_1
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 0
-        width: 469
-        height: 451
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc62418e6f12386f0800000000000000
-      internalID: -683665374090877235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
