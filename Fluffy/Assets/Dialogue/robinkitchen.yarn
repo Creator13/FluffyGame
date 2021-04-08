@@ -1,4 +1,4 @@
-title: INT. KEUKEN (slimy)
+title: SlimyBrocFight
 tags: 
 colorID: 0
 position: 263,31
@@ -17,7 +17,7 @@ Slimy: Point proven.
 BroccoliMom: I do not like the way you are talking to me.
 Slimy: I don't care.
 ===
-title: Robin Interferes KITCHEN
+title: RobinInterferes
 tags: 
 colorID: 0
 position: 472,27
@@ -28,7 +28,7 @@ position: 472,27
     Robin: Eh, Guys, Hello??
 Slimy: What do you want?
 ===
-title: Robin Interferes 2
+title: RobinInterferes2
 tags: 
 colorID: 0
 position: 689,25
@@ -37,7 +37,7 @@ BroccoliMom: We are kind of in the middle of
 something. 
 <<ShowItem fluffyear 1>>
 ===
-title: Robin interferes 3
+title: RobinInterferes3
 tags: 
 colorID: 0
 position: 903,37
@@ -61,7 +61,7 @@ Robin: Yes!
     <<SetFluffyProperty pattern hearts>>
 BroccoliMom: Maybe Slimy could help you as well.
 ===
-title: Robin interferes 4
+title: RobinInterferes4
 tags: 
 colorID: 0
 position: 279,254
@@ -74,7 +74,7 @@ Slimy: But I won't.
     Robin: You suck! You won't even help me on my quest.
 Slimy: Well, sometimes certain MONSTERS don't do what you ask them to.
 ===
-title: Robin interferes 5
+title: RobinInterferes5
 tags: 
 colorID: 0
 position: 485,251
@@ -82,7 +82,7 @@ position: 485,251
 BroccoliMom: If you have something to say to me, say it to my face.
 Robin: Please you guys, this is really important!
 ===
-title: Robin Interferes 6
+title: RobinInterferes6
 tags: 
 colorID: 0
 position: 693,247
@@ -95,7 +95,7 @@ Slimy: Help us, or go search yourself.
     Robin: But, what even is the problem between you two?
 Slimy: Well.....
 ===
-title: Robin Interferes 7
+title: RobinInterferes7
 tags: 
 colorID: 0
 position: 894,269
@@ -109,7 +109,7 @@ BroccoliMom: Just because you live here, doesn't mean you can make it your dumps
 Robin: Wait... lemme think...
 Robin: I think I have an idea. What if...
 ===
-title: Robin Oplossing
+title: RobinOplossing
 tags: 
 colorID: 0
 position: 271,475
@@ -123,7 +123,7 @@ position: 271,475
 BroccoliMom: Well.. I guess that is possible.
 BroccoliMom: Slimy, what do you think?
 ===
-title: Robin Oplossing 2
+title: RobinOplossing2
 tags: 
 colorID: 0
 position: 489,466
