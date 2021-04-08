@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: b8c125d3cee73f94280adb4c8c04f376
+guid: 9efb9c35bb70006428e5079f855d6e9a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1800725720200267543
+    second: Bed_monster_Bounce_px_colours_orange_08-04-2021_0
+  - first:
+      213: -1002819389884728635
+    second: Bed_monster_Bounce_px_colours_orange_08-04-2021_1
+  - first:
+      213: -6807961001009425202
+    second: Bed_monster_Bounce_px_colours_orange_08-04-2021_2
+  - first:
+      213: 537114029157094785
+    second: Bed_monster_Bounce_px_colours_orange_08-04-2021_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +53,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -137,7 +149,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bed_monster_Bounce_px_colours_orange_08-04-2021_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 551
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717427a70867df810800000000000000
+      internalID: 1800725720200267543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bed_monster_Bounce_px_colours_orange_08-04-2021_1
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1
+        width: 540
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cafb0cf3154512f0800000000000000
+      internalID: -1002819389884728635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bed_monster_Bounce_px_colours_orange_08-04-2021_2
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 1
+        width: 534
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4de1a2a834581a0800000000000000
+      internalID: -6807961001009425202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bed_monster_Bounce_px_colours_orange_08-04-2021_3
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 1
+        width: 540
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18599cf1d56347700800000000000000
+      internalID: 537114029157094785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
