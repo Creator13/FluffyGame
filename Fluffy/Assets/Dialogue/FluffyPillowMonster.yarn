@@ -1,3 +1,8 @@
+title: Declarations
+---
+<<declare $pillows_needed = 2 "How many pillows does robin need to collect?">>
+<<declare $pillow_count = 0 "How many pillows has robin collected?">>
+===
 title: MayIEnter
 tags:
 colorID: 0
@@ -45,14 +50,18 @@ Robin: How would he know when to come if he's called?!
 PillowMonster: You can't call him now either, can you?
 Robin: Well...
 PillowMonster: Give it to me! 
--> What if I found you some pillows for your fort?
+-> Bring pillows.
+    Robin: What if I found you some pillows for your fort?
     Robin: I'll look around the house for the brightest colors!
     PillowMonster: Oh, that would be great!!
-    PillowMonster: I will need at least {$pillow_count}!
--> Stay away from Fluffy's ear! I will take action if you come close!
+    PillowMonster: I will need at least {$pillows_needed}!
+-> Stay away!
+    Robin: Stay away from Fluffy's ear! 
+    Robin: I will take action if you come close!
     <<wait 1.5>>
     PillowMonster: Fine.
-    PillowMonster: Bring me {$pillow_count} pillows then!
+    PillowMonster: You'll need to bring me {$pillows_needed} pillows!
+    PillowMonster: Then I'll talk.
 <<ActivatePillowSearch>>
 ===
 title: IHavePillows
@@ -61,6 +70,10 @@ colorID: 0
 position: 100, 0
 ---
 // misschien hier dat je als speler kan kiezen hoeveel kussens je hem geeft of welke? en gingen we ook nog doen dat je dus daadwerkelijk kan zoeken op bepaalde plekken?
+<<if (pillow_count() < $pillows_needed)>>
+    PillowMonster: I'll need more pillows than that! 
+    <<stop>>
+<<endif>>
 Robin: I've found all these pillows!
 Robin: Look how beautiful they are!
 PillowMonster: Hm. They're fine.
@@ -72,5 +85,4 @@ PillowMonster: When you spend all day in the plumbing, you pick things up, obvio
 -> Thank you so much! You've been the biggest help!
    PillowMonster: Hmpf. You're welcome, little one.
 // andere keuze dat je gewoon gelijk wegloopt miss?
-
 ===

@@ -11,7 +11,15 @@ ScriptedImporter:
   sourceScripts:
   - {fileID: 6391573757903218779, guid: 82b86940c47678a47b09e5cfc917ae64, type: 3}
   - {fileID: 6391573757903218779, guid: 4667e2f5fbad48c4fbcfbef260f8fd08, type: 3}
-  compileError: 
+  - {fileID: 6391573757903218779, guid: 3beb90dcc6b26c84897f4821bf748cd4, type: 3}
+  - {fileID: 6391573757903218779, guid: 96b6ac951ab4bf54a9b28d41ea1befeb, type: 3}
+  compileError: 'Error in Assets/Dialogue/FluffyPillowMonster.yarn line 3
+
+    <<declare
+    $pillows_needed = 2 "How many pillows does robin need to collect?">>
+
+    $pillows_needed
+    has already been declared in Assets/Dialogue/Fluffy.yarnproject, line 4'
   serializedDeclarations: []
   defaultLanguage: en
   languagesToSourceAssets: []

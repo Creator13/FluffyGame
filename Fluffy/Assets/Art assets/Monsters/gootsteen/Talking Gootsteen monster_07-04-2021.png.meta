@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: d6051853c1bcef64eafaf76a6e9a0c02
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8154331729769243450
+    second: Talking Gootsteen monster_07-04-2021_0
+  - first:
+      213: 829737818327606744
+    second: Talking Gootsteen monster_07-04-2021_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -137,7 +143,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Talking Gootsteen monster_07-04-2021_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1116
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a79531810a2170800000000000000
+      internalID: 8154331729769243450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talking Gootsteen monster_07-04-2021_1
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 0
+        width: 1116
+        height: 493
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5ef1e4622d38b00800000000000000
+      internalID: 829737818327606744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -5,6 +6,8 @@ namespace Fluffy
 {
     public class ConversationTarget : Interactable
     {
+        public event Action ConversationStarted;
+        
         [SerializeField] private string promptText;
         [SerializeField] private InteractionPromptProvider interactionPromptProvider;
 
@@ -29,6 +32,7 @@ namespace Fluffy
             interactionPromptProvider.HidePrompt(this);
 
             dialogueRunner.StartDialogue(dialogueStartNode);
+            ConversationStarted?.Invoke();
         }
     }
 }

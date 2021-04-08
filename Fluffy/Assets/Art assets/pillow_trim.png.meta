@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: 68e3c5d511e92dc488b935acc20c0bb1
+guid: 5042352c5c969da40a03474dcb15791a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7968112700140909444
-    second: Pillow monster Bounce_06-04-2021_0
-  - first:
-      213: -6278421399507859813
-    second: Pillow monster Bounce_06-04-2021_1
-  - first:
-      213: 7041733711082041095
-    second: Pillow monster Bounce_06-04-2021_2
-  - first:
-      213: 4366099681760666119
-    second: Pillow monster Bounce_06-04-2021_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -149,91 +137,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Pillow monster Bounce_06-04-2021_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1152
-        height: 605
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7c82d157b39b6190800000000000000
-      internalID: -7968112700140909444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pillow monster Bounce_06-04-2021_1
-      rect:
-        serializedVersion: 2
-        x: 1221
-        y: 0
-        width: 1187
-        height: 599
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b968f1c60019ed8a0800000000000000
-      internalID: -6278421399507859813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pillow monster Bounce_06-04-2021_2
-      rect:
-        serializedVersion: 2
-        x: 2454
-        y: 2
-        width: 1193
-        height: 593
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70f20f3608349b160800000000000000
-      internalID: 7041733711082041095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pillow monster Bounce_06-04-2021_3
-      rect:
-        serializedVersion: 2
-        x: 3698
-        y: 0
-        width: 1169
-        height: 599
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7026a492780879c30800000000000000
-      internalID: 4366099681760666119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
