@@ -3,6 +3,9 @@ tags:
 colorID: 0
 position: 263,31
 ---
+-> interrrupt the monsters
+   Slimy: Not now!
+-> Stay quiet
 Slimy: You can look innocent all you want, but those brussel sprouts won't fool me.
 Slimy: I want you to stop cleaning everything here all the time!
 Slimy: Yesterday you cleaned the sink. My sink!
@@ -11,7 +14,7 @@ BroccoliMom: I don't want you to keep collections!
 BroccoliMom: It's gonna smell and I don't want my whole kitchen to smell like mold.
 BroccoliMom: You think Robin is gonna like my food then?
 Slimy: Robin is not gonna like your food anyway, so stop whining.
-BroccoliMom: We are in a proces! Yesterday he ate a half haricot. 
+BroccoliMom: We are in a proces! Yesterday he ate half a haricot. 
 BroccoliMom: That is more than ever!
 Slimy: Point proven.
 BroccoliMom: I do not like the way you are talking to me.
@@ -80,7 +83,10 @@ colorID: 0
 position: 485,251
 ---
 BroccoliMom: If you have something to say to me, say it to my face.
-Robin: Please you guys, this is really important!
+-> Please!
+   Robin: Please you guys, this is really important!
+-> That's not fair!
+   Robin: That is mean and not fair! Just help me!
 ===
 title: RobinInterferes6
 tags: 
@@ -104,7 +110,7 @@ BroccoliMom: I'll tell you what the problem is!
 BroccoliMom: Slimey here keeps making a mess in my kitchen.
 BroccoliMom: It is horrible and it smells.
 BroccoliMom: I've told him many times to stop, but he just refuses. 
-BroccoliMom: You can scoff all you want Slimy! 
+BroccoliMom: You can scoff all you want, Slimy! 
 BroccoliMom: Just because you live here, doesn't mean you can make it your dumpster.
 Robin: Wait... lemme think...
 Robin: I think I have an idea. What if...
@@ -129,10 +135,13 @@ colorID: 0
 position: 489,466
 ---
 Slimy: I would be okay with that.
-Robin: Okay, now hug each other!!!
+-> Hug eachother!
+   Robin: Okay, now hug each other!!!
+-> Give eachother a kiss!
+   Robin: So if it's fixed, give eachother a good smooch!
 Slimy: Don't push it.
 Robin: Okay okay, I'm sorry.
 Robin: Can you please help me now?
-Slimy: I'm sorry kid. I haven't seen Fluffy at all.
+Slimy: I'm sorry. I haven't seen Fluffy at all.
 Slimy: Maybe it's best to go to bed, kid. It's late.
 ===
