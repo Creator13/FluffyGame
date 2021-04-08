@@ -18,6 +18,9 @@ tags:
 colorID: 0
 position: 50, 0
 ---
+<<if visited("TheBargain") is true>>
+    <<jump IHavePillows>>
+<<endif>>
 PillowMonster: So what's the matter?
 Robin: Have you seen Fluffy? Or some part of him maybe?
 PillowMonster: What does he look like?
@@ -32,7 +35,6 @@ Robin: Could you take a look at his ear maybe?
 PillowMonster: What a beautiful earpiece you have there.
 PillowMonster: Beautifully woven... and such vibrant colors! 
 PillowMonster: It just so happens that I lost a piece of my fort recently.
-<<wait 1.5>> 
 -> Ask what happened
    PillowMonster: 
 -> Don't ask what happened
@@ -46,11 +48,12 @@ PillowMonster: Give it to me!
 -> What if I found you some pillows for your fort?
     Robin: I'll look around the house for the brightest colors!
     PillowMonster: Oh, that would be great!!
-    PillowMonster: I will need at least $pillow_count!
+    PillowMonster: I will need at least {$pillow_count}!
 -> Stay away from Fluffy's ear! I will take action if you come close!
     <<wait 1.5>>
     PillowMonster: Fine.
-    PillowMonster: Bring me $pillow_count pillows then!
+    PillowMonster: Bring me {$pillow_count} pillows then!
+<<ActivatePillowSearch>>
 ===
 title: IHavePillows
 tags:
