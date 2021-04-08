@@ -11,6 +11,8 @@ using Yarn.Unity;
 
 public class Sequencer : MonoBehaviour
 {
+    [SerializeField] private bool skip;
+
     [Header("Global")] [SerializeField] private InteractionController interactionController;
     [SerializeField] private FadeToBlackPanel blackPanel;
     [SerializeField] private DialogueRunner dialogue;
@@ -28,7 +30,7 @@ public class Sequencer : MonoBehaviour
     [SerializeField] private string foundEar = "Intro2";
 
     [Header("Pillow Monster")] [SerializeField] private List<ItemPickup> pillows;
-    
+
     private void Awake()
     {
         Assert.IsNotNull(interactionController);
@@ -37,7 +39,7 @@ public class Sequencer : MonoBehaviour
         Assert.IsNotNull(robin);
         Assert.IsNotNull(inventory);
         Assert.IsNotNull(mainLight);
-        
+
         Assert.IsNotNull(intro);
         Assert.IsNotNull(bedlight);
         Assert.IsNotNull(whereIsFluffy);
@@ -45,10 +47,24 @@ public class Sequencer : MonoBehaviour
         Assert.IsNotNull(bedCollider);
         Assert.IsNotNull(fluffysEar);
 
+        if (skip)
+        {
+            SetSkipState();
+            return;
+        }
+
         SetInitialState();
-        
+
         intro.stopped += OnIntroEnd;
         intro.Play();
+    }
+
+    private void SetSkipState()
+    {
+        blackPanel.SetAmount(1);
+        mainLight.intensity = 1;
+        bedCollider.SetActive(false);
+        robin.Move(robinStartSpawn.position);
     }
 
     private void SetInitialState()
@@ -57,16 +73,16 @@ public class Sequencer : MonoBehaviour
         interactionController.Deactivate();
         robin.SetSit(true);
         fluffysEar.gameObject.SetActive(false);
-        
+
         SetPillowsActive(false);
     }
-    
+
     private void OnIntroEnd(PlayableDirector _)
     {
         intro.stopped -= OnIntroEnd;
-        
+
         intro.gameObject.SetActive(false);
-        
+
         bedlight.GetComponent<Collider2D>().enabled = true;
         interactionController.Activate();
         bedlight.LightOn += OnLightOn;
@@ -75,20 +91,20 @@ public class Sequencer : MonoBehaviour
     private void OnLightOn()
     {
         bedlight.LightOn -= OnLightOn;
-        
+
         blackPanel.FadeIn(0);
         dialogue.StartDialogue(startNode);
         whereIsFluffy.Play();
-        
+
         whereIsFluffy.stopped += FluffyIsLost;
     }
 
     private void FluffyIsLost(PlayableDirector _)
     {
         whereIsFluffy.stopped -= FluffyIsLost;
-        
+
         robin.SetSit(false);
-        // robin.Move(robinStartSpawn.position);
+        robin.Move(robinStartSpawn.position);
         bedCollider.SetActive(false);
         fluffysEar.gameObject.SetActive(true);
 
@@ -100,7 +116,7 @@ public class Sequencer : MonoBehaviour
         if (inventory.Has("fluffyEar"))
         {
             inventory.Updated -= CheckEarPickup;
-            
+
             dialogue.StartDialogue(foundEar);
             dialogue.onDialogueComplete.AddListener(EndIntro);
         }
@@ -112,7 +128,7 @@ public class Sequencer : MonoBehaviour
 
         mainLight.intensity = .3f;
     }
-    
+
 
     private IEnumerable Delay(float seconds, Action callback)
     {

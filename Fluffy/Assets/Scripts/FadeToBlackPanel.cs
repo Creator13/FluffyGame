@@ -45,7 +45,7 @@ namespace Utility
 
 #endif
 
-        private void SetAmount(float amount)
+        public void SetAmount(float amount)
         {
             this.amount = amount;
         }
