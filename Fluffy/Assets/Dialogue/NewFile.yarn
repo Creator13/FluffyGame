@@ -1,0 +1,47 @@
+title: Start
+tags: 
+colorID: 0
+position: 204,-128
+---
+Robin: Hello?
+Robin: Who are you? And what are you doing with Fluffy?
+Bedmonster: Please don't yell at me!
+-> Stay mad
+   Robin: Then tell me what you did with him!
+-> Be kind  
+   Robin: I'm sorry.. But what did you do to my Fluffy?
+Bedmonster: Nothing! 
+Bedmonster: I saw him lying on the floor, 
+Bedmonster: and I could use a buddy to keep me safe.
+Bedmonster: See, there is a monster above my bed.   
+Bedmonster: He is really scary!
+Robin: Above your bed?
+Robin: But... That's where I sleep?
+Robin: I am not scary!
+-> Make a joke
+Robin: Knock Knock
+Bedmonster: Who's there?
+Robin: Figs!
+Bedmonster: Figs who?
+Robin: Figs the doorbell, it's broken!
+Bedmonster: Hihi...
+-> Make a silly face
+Bedmonster: Hihi..
+Robin: I am glad Fluffy is safe.
+Bedmonster: Yeah.. But he's yours, isn't he? Here, you can have him back.
+-> You keep him!
+Robin: No, you can keep him.
+Bedmonster: That is very sweet of you.. But aren't you scared?
+Robin: I learned that monsters aren't as scary as you may think
+-> Thank you!
+Robin: Thank you so much!!
+Bedmonster: I am going to sleep then... Or try, at least. I'm glad you're not that scary.
+Robin: You know, the other monsters are actually very nice!
+Bedmonster: There are more monsters?
+Robin: Well yes, but they're not scary at all!
+Bedmonster: I can do this... I'm fine... Let's go to sleep...
+-> Get in bed with me
+Robin: You want to get in bed with me and Fluffy?
+Bedmonster: In bed with you? I would like that, actually.
+Robin: I have really soft pillows.. Although I did lose some this week...
+===

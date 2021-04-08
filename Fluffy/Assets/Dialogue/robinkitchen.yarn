@@ -3,9 +3,6 @@ tags:
 colorID: 0
 position: 263,31
 ---
--> Interrrupt the monsters
-   Slimy: Not now!
--> Stay quiet
 Slimy: You can look innocent all you want, but those brussels sprouts won't fool me.
 Slimy: I want you to stop cleaning everything here all the time!
 Slimy: Yesterday you cleaned the sink. My sink!
@@ -13,40 +10,24 @@ Slimy: I had such a nice collection of leftovers stashed there!
 BroccoliMom: I don't want you to keep collections!
 BroccoliMom: It's gonna smell and I don't want my whole kitchen to smell like mold.
 BroccoliMom: You think Robin is gonna like my food then?
+-> Interrrupt the monsters
+   Slimy: Not now!
+-> Stay quiet
 Slimy: Robin is not gonna like your food anyway, so stop whining.
 BroccoliMom: We are in a proces! Yesterday he ate half a haricot. 
 BroccoliMom: That is more than ever!
 Slimy: Point proven.
 BroccoliMom: I do not like the way you are talking to me.
 Slimy: I don't care.
-===
-title: RobinInterferes
-tags: 
-colorID: 0
-position: 472,27
----
 -> What's going on here?
     Robin: Guys, what's going on between you two?
 -> Eh, Guys?
     Robin: Eh, Guys, Hello??
 Slimy: What do you want?
-===
-title: RobinInterferes2
-tags: 
-colorID: 0
-position: 689,25
----
-BroccoliMom: We are kind of in the middle of 
-something. 
-<<ShowItem fluffyear 1>>
-===
-title: RobinInterferes3
-tags: 
-colorID: 0
-position: 903,37
----
+BroccoliMom: We are kind of in the middle of something. 
+<<ShowItem fluffyear 1.5>>
 Robin: Do you know where Fluffy is?
-BroccoliMom: Fluffy, who is Fluffy?
+BroccoliMom: Fluffy? Who is Fluffy?
 Robin: My cat! 
 -> He wears a T-shirt
     <<SetFluffyProperty accessory tshirt>>
@@ -62,50 +43,25 @@ Robin: Yes!
     <<SetFluffyProperty pattern stars>>
 -> His pattern has hearts
     <<SetFluffyProperty pattern hearts>>
-BroccoliMom: Maybe Slimy could help you as well.
-===
-title: RobinInterferes4
-tags: 
-colorID: 0
-position: 279,254
----
+BroccoliMom: Slimy here should be able to help you with that
 Slimy: I can look through my pipes for you..
 Slimy: But I won't.
 -> Why not?
     Robin: Why not? I need Fluffy!!
 -> You suck!
     Robin: You suck! You won't even help me on my quest.
-Slimy: Well, sometimes certain MONSTERS don't do what you ask them to.
-===
-title: RobinInterferes5
-tags: 
-colorID: 0
-position: 485,251
----
+Slimy: Well, sometimes certain *MONSTERS* don't do what you ask them to.
 BroccoliMom: If you have something to say to me, say it to my face.
 -> Please!
    Robin: Please you guys, this is really important!
 -> That's not fair!
    Robin: That is mean and not fair! Just help me!
-===
-title: RobinInterferes6
-tags: 
-colorID: 0
-position: 693,247
----
 Slimy: What we're talking about is more important at the moment.
 Slimy: Help us, or go search yourself.
 -> Help? 
     Robin: Help? How can I help?
 -> What's the problem?
     Robin: But, what even is the problem between you two?
-Slimy: Well.....
-===
-title: RobinInterferes7
-tags: 
-colorID: 0
-position: 894,269
----
 BroccoliMom: I'll tell you what the problem is! 
 BroccoliMom: Slimey here keeps making a mess in my kitchen.
 BroccoliMom: It is horrible and it smells.
@@ -114,12 +70,6 @@ BroccoliMom: You can scoff all you want, Slimy!
 BroccoliMom: Just because you live here, doesn't mean you can make it your dumpster.
 Robin: Wait... lemme think...
 Robin: I think I have an idea. What if...
-===
-title: RobinOplossing
-tags: 
-colorID: 0
-position: 271,475
----
 -> You give Slimy a spot in the garden?
     Robin: You can give Slimy a spot in the garden so he can stash his stuff but not bother you!
 -> You ask PillowMonster to be your mediator?
@@ -128,12 +78,6 @@ position: 271,475
     Robin: You could let Slimy hoard his scraps and make a compost bin with it. 
 BroccoliMom: Well.. I guess that is possible.
 BroccoliMom: Slimy, what do you think?
-===
-title: RobinOplossing2
-tags: 
-colorID: 0
-position: 489,466
----
 Slimy: I would be okay with that.
 -> Hug eachother!
    Robin: Okay, now hug each other!!!

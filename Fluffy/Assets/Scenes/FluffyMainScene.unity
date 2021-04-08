@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3301547}
   - component: {fileID: 3301546}
   - component: {fileID: 3301548}
+  - component: {fileID: 3301549}
   m_Layer: 0
   m_Name: Gootsteen monster Still_07-04-2021
   m_TagString: Untagged
@@ -227,6 +228,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3301549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c4c73206fcfb3478b3f9da347804ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: Slimy
+  dialogueBubbleOffset: {x: 3.05, y: 3}
 --- !u!1 &17131690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1277,7 @@ GameObject:
   - component: {fileID: 216646342}
   - component: {fileID: 216646343}
   - component: {fileID: 216646344}
+  - component: {fileID: 216646345}
   m_Layer: 0
   m_Name: broccoli
   m_TagString: Untagged
@@ -1346,7 +1362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216646338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.4, y: -1.27, z: 0}
+  m_LocalPosition: {x: -8.81, y: -1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 340779309}
@@ -1401,6 +1417,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &216646345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216646338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c4c73206fcfb3478b3f9da347804ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: BroccoliMom
+  dialogueBubbleOffset: {x: 0, y: 3.85}
 --- !u!43 &232536691
 Mesh:
   m_ObjectHideFlags: 0
@@ -2071,6 +2101,7 @@ Transform:
   - {fileID: 1493400216}
   - {fileID: 1198712282}
   - {fileID: 870115467}
+  - {fileID: 1974543832}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2177,7 +2208,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7a8b9b269f6359b44b39cac427d9963b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2260,7 +2291,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ce4f34be04010d648843e42e80b7c3a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2984,7 +3015,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -517833243
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c7db2da966985f94780167ee27855ea5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4120,7 +4151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 46293a3e98f184c4081093e3d93d39d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4246,7 +4277,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c17a3ba83f631b544ae1ac3c01f0324a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5171,7 +5202,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6785,7 +6816,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 909c092a853b5d449ba97735fd95323e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7924,7 +7955,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7998,7 +8029,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -8194,7 +8225,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1924337741
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 86767cb4b6e94cf4bae05bb49ff461da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12624,6 +12655,76 @@ Transform:
   m_Father: {fileID: 1405877212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974543831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974543832}
+  - component: {fileID: 1974543833}
+  - component: {fileID: 1974543834}
+  m_Layer: 0
+  m_Name: EntranceDialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1974543832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974543831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.42, y: -2.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 340779309}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974543833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974543831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f29aa6fc340cf8807920d0412a2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1974543834
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974543831}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1977132522
 GameObject:
   m_ObjectHideFlags: 0
@@ -13162,7 +13263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  startChapter: 1
+  startChapter: 2
   interactionController: {fileID: 482681854}
   blackPanel: {fileID: 1120841698}
   dialogue: {fileID: 469602690}
@@ -13172,6 +13273,7 @@ MonoBehaviour:
   variables: {fileID: 469602689}
   music: {fileID: 995938740}
   backgroundFX: {fileID: 332374279}
+  camera: {fileID: 1687258583}
   intro: {fileID: 913008125}
   bedlight: {fileID: 2090355165}
   whereIsFluffy: {fileID: 1399538402}
@@ -13186,6 +13288,10 @@ MonoBehaviour:
   - {fileID: 1367106222}
   pillowFortEntrance: {fileID: 910232284}
   mayIEnter: {fileID: 2104427569}
+  kitchenEntranceTrigger: {fileID: 1974543833}
+  hideMonsters:
+  - {fileID: 3301545}
+  - {fileID: 216646338}
 --- !u!4 &2048505474
 Transform:
   m_ObjectHideFlags: 0

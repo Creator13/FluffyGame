@@ -13,7 +13,7 @@ namespace Fluffy
 {
     public class Sequencer : MonoBehaviour
     {
-        private enum StartChapter { Intro, Pillowmonster }
+        private enum StartChapter { Intro, Pillowmonster, Kitchen }
 
         [SerializeField] private bool skip;
         [SerializeField] private StartChapter startChapter;
@@ -27,6 +27,7 @@ namespace Fluffy
         [SerializeField] private InMemoryVariableStorage variables;
         [SerializeField] private AudioSource music;
         [SerializeField] private AudioSource backgroundFX;
+        [SerializeField] private FollowPlayer2D camera;
 
         [Header("Intro")] [SerializeField] private PlayableDirector intro;
         [SerializeField] private LightSwitch bedlight;
@@ -40,6 +41,9 @@ namespace Fluffy
         [Header("Pillow Monster")] [SerializeField] private List<ItemPickup> pillows;
         [SerializeField] private RoomPortal pillowFortEntrance;
         [SerializeField] private ConversationTarget mayIEnter;
+
+        [Header("Kitchen")] [SerializeField] private AutoTrigger kitchenEntranceTrigger;
+        [SerializeField] private List<GameObject> hideMonsters;
 
         private void Awake()
         {
@@ -70,9 +74,14 @@ namespace Fluffy
 
                     intro.stopped += OnIntroEnd;
                     intro.Play();
+                    
                     break;
                 case StartChapter.Pillowmonster:
                     SetPillowmonsterState();
+                    
+                    break;
+                case StartChapter.Kitchen:
+                    SetKitchenState();
                     
                     break;
             }
@@ -93,6 +102,9 @@ namespace Fluffy
             robin.SetSit(true);
             fluffysEar.gameObject.SetActive(false);
             music.Stop();
+            
+            hideMonsters.ForEach(obj => obj.SetActive(false));
+            kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = false;
 
             SetPillowsActive(false);
         }
@@ -113,8 +125,25 @@ namespace Fluffy
             SetPillowsActive(false);
             backgroundFX.volume = .2f;
             music.Play();
+            
+            hideMonsters.ForEach(obj => obj.SetActive(false));
+            kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = false;
 
             mayIEnter.ConversationStarted += WaitForMayIEnter;
+        }
+
+        private void SetKitchenState()
+        {
+            bedlight.StartInteraction(gameObject);
+            robin.Move(robinStartSpawn.position);
+            bedCollider.SetActive(false);
+            mainLight.intensity = .3f;
+            
+            SetPillowsActive(false);
+            hideMonsters.ForEach(obj => obj.SetActive(true));
+            kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = true;
+
+            kitchenEntranceTrigger.Targeted += StartKitchenConvo;
         }
 
         private void OnIntroEnd(PlayableDirector _)
@@ -188,6 +217,41 @@ namespace Fluffy
         private void CheckPillowPickup()
         {
             dialogue.variableStorage.SetValue("pillow_count", inventory.ItemCount("pillow"));
+
+            dialogue.variableStorage.TryGetValue("pillows_needed", out float pillowCount);
+            if (Math.Abs(inventory.ItemCount("pillow") - pillowCount) < .01)
+            {
+                dialogue.onNodeComplete.AddListener(OnPillowFortComplete);
+            }
+        }
+
+        private void OnPillowFortComplete(string nodeName)
+        {
+            if (nodeName != "IHavePillows")
+            {
+                return;
+            }
+            
+            dialogue.onNodeComplete.RemoveListener(OnPillowFortComplete);
+
+            SetKitchenState();
+        }
+
+        private void StartKitchenConvo()
+        {
+            kitchenEntranceTrigger.Targeted -= StartKitchenConvo;
+            
+            dialogue.StartDialogue("SlimyBrocFight");
+            dialogue.onDialogueComplete.AddListener(AfterFight);
+
+            camera.AdditionalXOffset = 5.4f;
+        }
+
+        private void AfterFight()
+        {
+            dialogue.onDialogueComplete.RemoveListener(AfterFight);
+
+            camera.AdditionalXOffset = 0;
         }
 
         private IEnumerable Delay(float seconds, Action callback)

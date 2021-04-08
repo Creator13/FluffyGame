@@ -15,6 +15,9 @@ namespace Fluffy
 
         //TODO This could potentially be made more efficient by caching this value. It's unlikely to change while playing in editor and impossible to change in prod
         private float ZOffset => Mathf.Abs(zOffsetOverride) <= 0.001 ? transform.position.z : zOffsetOverride;
+        
+        public float AdditionalXOffset { private get; set; }
+        public float AdditionalYOffset { private get; set; }
 
         private Vector3 TargetPos
         {
@@ -22,8 +25,8 @@ namespace Fluffy
             {
                 var targetPos = target.position;
                 targetPos.z = ZOffset;
-                targetPos.x += XYOffset.x;
-                targetPos.y += XYOffset.y;
+                targetPos.x += XYOffset.x + AdditionalXOffset;
+                targetPos.y += XYOffset.y = AdditionalYOffset;
 
                 targetPos.x = Mathf.Clamp(targetPos.x, Bounds.maxXlimit.x, Bounds.maxXlimit.y);
                 targetPos.y = Mathf.Clamp(targetPos.y, Bounds.maxYlimit.x, Bounds.maxYlimit.y);
