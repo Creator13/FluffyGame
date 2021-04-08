@@ -41,7 +41,8 @@ PillowMonster: What a beautiful earpiece you have there.
 PillowMonster: Beautifully woven... and such vibrant colors! 
 PillowMonster: It just so happens that I lost a piece of my fort recently.
 -> Ask what happened
-   PillowMonster: 
+   Pillowmonster: How would I know?? 
+   PillowMonster: Someone just keeps stealing my pillows, the most beautiful ones even!
 -> Don't ask what happened
 PillowMonster: Maybe I do have some information about Fluffy.
 PillowMonster: I will give it to you if you give me that piece of wonderful ear.
@@ -82,7 +83,9 @@ PillowMonster: I will tell you what I know.
 PillowMonster: Slimy is chilling in the kitchen sink as we speak.
 PillowMonster: He always knows what's up around the house.
 PillowMonster: When you spend all day in the plumbing, you pick things up, obviously.
--> Thank you so much! You've been the biggest help!
-   PillowMonster: Hmpf. You're welcome, little one.
+-> Thanks!
+    Robin: Thank you so much! You've been the biggest help!
+    PillowMonster: Hmpf. You're welcome, little one.
+-> (walk away)
 // andere keuze dat je gewoon gelijk wegloopt miss?
 ===
