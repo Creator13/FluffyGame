@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Fluffy
@@ -10,7 +10,7 @@ namespace Fluffy
         public string name;
         public Sprite sprite;
     }
-
+    
     public class PlushyMixNMatch : MonoBehaviour
     {
         [SerializeField] private List<PlushyOption> baseColors = new List<PlushyOption>(3);
@@ -27,19 +27,19 @@ namespace Fluffy
 
         public void SetBaseColor(string optionName)
         {
-            baseColorIndex = baseColors.FindIndex(opt => opt.name == optionName);
+            baseColorIndex = baseColors.FindIndex(opt =>  opt.name.Equals(optionName, StringComparison.OrdinalIgnoreCase));
             UpdateSprites();
         }
 
         public void SetAccessory(string optionName)
         {
-            accessoryIndex = accessories.FindIndex(opt => opt.name == optionName);
+            accessoryIndex = accessories.FindIndex(opt => opt.name.Equals(optionName, StringComparison.OrdinalIgnoreCase));
             UpdateSprites();
         }
 
         public void SetPattern(string optionName)
         {
-            patternIndex = patterns.FindIndex(opt => opt.name == optionName);
+            patternIndex = patterns.FindIndex(opt => opt.name.Equals(optionName, StringComparison.OrdinalIgnoreCase));
             UpdateSprites();
         }
 

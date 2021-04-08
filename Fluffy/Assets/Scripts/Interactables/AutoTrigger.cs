@@ -11,8 +11,8 @@ namespace Fluffy
 
         public override void OnTargeted()
         {
-            Targeted?.Invoke();
             InteractionAvailable = false;
+            Targeted?.Invoke();
         }
 
         public override void OnUntargeted()

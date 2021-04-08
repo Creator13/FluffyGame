@@ -63,5 +63,10 @@ namespace Fluffy
 
             transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * speed);
         }
+
+        public void SetTarget(Transform target)
+        {
+            this.target = target;
+        }
     }
 }

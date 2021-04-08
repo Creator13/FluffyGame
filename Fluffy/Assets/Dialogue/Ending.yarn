@@ -1,4 +1,19 @@
-title: Start
+title: WhoIsThere
+tags: 
+colorID: 0
+position: 204,-128
+---
+Robin: Who is there?
+===
+title: CheckingTheBed
+tags: 
+colorID: 0
+position: 204,-128
+---
+Robin: Hello?
+Robin: Is anybody there?
+===
+title: MakingFriends
 tags: 
 colorID: 0
 position: 204,-128
@@ -11,37 +26,45 @@ Bedmonster: Please don't yell at me!
 -> Be kind  
    Robin: I'm sorry.. But what did you do to my Fluffy?
 Bedmonster: Nothing! 
-Bedmonster: I saw him lying on the floor, 
-Bedmonster: and I could use a buddy to keep me safe.
-Bedmonster: See, there is a monster above my bed.   
-Bedmonster: He is really scary!
+Bedmonster: I saw him lying on the floor!
+Bedmonster: I could use a buddy to keep me safe...
+Bedmonster: See, there is a monster above my bed.
+Bedmonster: They're really scary!
 Robin: Above your bed?
 Robin: But... That's where I sleep?
 Robin: I am not scary!
 -> Make a joke
-Robin: Knock Knock
-Bedmonster: Who's there?
-Robin: Figs!
-Bedmonster: Figs who?
-Robin: Figs the doorbell, it's broken!
-Bedmonster: Hihi...
+   Robin: Knock Knock
+   Bedmonster: Who's there?
+   Robin: Figs!
+   Bedmonster: Figs who?
+   Robin: Figs the doorbell, it's broken!
+   Bedmonster: Hihi...
 -> Make a silly face
-Bedmonster: Hihi..
+   Bedmonster: Hihi..
 Robin: I am glad Fluffy is safe.
-Bedmonster: Yeah.. But he's yours, isn't he? Here, you can have him back.
+Bedmonster: Yeah.. But he's yours, isn't he? 
+Bedmonster: Here, you can have him back.
+// <<ShowItem fluffy 1.5>>
 -> You keep him!
-Robin: No, you can keep him.
-Bedmonster: That is very sweet of you.. But aren't you scared?
-Robin: I learned that monsters aren't as scary as you may think
+   Robin: No, you can keep him.
+   Bedmonster: That is very sweet of you.. But aren't you scared?
+   Robin: I learned that monsters aren't as scary as you may think
+   <<SetEnding 0>>
 -> Thank you!
-Robin: Thank you so much!!
-Bedmonster: I am going to sleep then... Or try, at least. I'm glad you're not that scary.
-Robin: You know, the other monsters are actually very nice!
-Bedmonster: There are more monsters?
-Robin: Well yes, but they're not scary at all!
-Bedmonster: I can do this... I'm fine... Let's go to sleep...
+   Robin: Thank you so much!!
+   Bedmonster: I am going to sleep then... 
+   Bedmonster: Or try, at least. 
+   Bedmonster: I'm glad you're not that scary.
+   Robin: You know, the other monsters are actually very nice!
+   Bedmonster: There are more monsters?
+   Robin: Well yes, but they're not scary at all!
+   Bedmonster: I can do this... I'm fine... Let's go to sleep...
+   <<SetEnding 1>>
 -> Get in bed with me
-Robin: You want to get in bed with me and Fluffy?
-Bedmonster: In bed with you? I would like that, actually.
-Robin: I have really soft pillows.. Although I did lose some this week...
+   Robin: You want to get in bed with me and Fluffy?
+   Bedmonster: In bed with you? I would like that, actually.
+   Robin: I have really soft pillows.. Although I did lose some this week...
+   <<SetEnding 2>>
+// THE END
 ===

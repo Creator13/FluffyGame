@@ -1,19 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Fluffy;
+using CameraBounding;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Playables;
 using Utility;
 using Yarn.Unity;
+using Random = UnityEngine.Random;
 
 namespace Fluffy
 {
     public class Sequencer : MonoBehaviour
     {
-        private enum StartChapter { Intro, Pillowmonster, Kitchen }
+        private enum StartChapter
+        {
+            Intro,
+            Pillowmonster,
+            Kitchen,
+            Ending
+        }
 
         [SerializeField] private bool skip;
         [SerializeField] private StartChapter startChapter;
@@ -27,7 +34,9 @@ namespace Fluffy
         [SerializeField] private InMemoryVariableStorage variables;
         [SerializeField] private AudioSource music;
         [SerializeField] private AudioSource backgroundFX;
-        [SerializeField] private FollowPlayer2D camera;
+        [SerializeField] private new FollowPlayer2D camera;
+        [SerializeField] private InteractionPromptProvider interactionPromptProvider;
+        [SerializeField] private FluffyProperties fluffyProperties;
 
         [Header("Intro")] [SerializeField] private PlayableDirector intro;
         [SerializeField] private LightSwitch bedlight;
@@ -37,6 +46,7 @@ namespace Fluffy
         [SerializeField] private GameObject bedCollider;
         [SerializeField] private ItemPickup fluffysEar;
         [SerializeField] private string foundEar = "Intro2";
+        [SerializeField] private LightSwitch ceilingLamp;
 
         [Header("Pillow Monster")] [SerializeField] private List<ItemPickup> pillows;
         [SerializeField] private RoomPortal pillowFortEntrance;
@@ -44,6 +54,18 @@ namespace Fluffy
 
         [Header("Kitchen")] [SerializeField] private AutoTrigger kitchenEntranceTrigger;
         [SerializeField] private List<GameObject> hideMonsters;
+
+        [Header("Ending")] [SerializeField] private AutoTrigger bedroomEntranceTrigger;
+        [SerializeField] private GameObject tail;
+        [SerializeField] private Transform endingStartPosition;
+        [SerializeField] private ConversationTarget talkToBedMonster;
+        [SerializeField] private GameObject bedMonster;
+        [SerializeField] private Transform talkWithBedMonsterPositíon;
+        [SerializeField] private PlushyMixNMatch fluffyInHands;
+
+        [Header("Credits")] [SerializeField] private PlayableDirector creditSequence;
+        [SerializeField] private AudioClip pianoMusic;
+        [SerializeField] private CameraBounds2D polaroidScreen;
 
         private void Awake()
         {
@@ -67,6 +89,9 @@ namespace Fluffy
                 return;
             }
 
+            bedroomEntranceTrigger.gameObject.SetActive(false);
+            bedMonster.gameObject.SetActive(false);
+
             switch (startChapter)
             {
                 case StartChapter.Intro:
@@ -74,18 +99,34 @@ namespace Fluffy
 
                     intro.stopped += OnIntroEnd;
                     intro.Play();
-                    
+
                     break;
                 case StartChapter.Pillowmonster:
                     SetPillowmonsterState();
-                    
+
                     break;
                 case StartChapter.Kitchen:
                     SetKitchenState();
+
+                    break;
+                case StartChapter.Ending:
+                    SetEndingState();
+                    robin.Move(endingStartPosition.position);
                     
+                    // Simulate random fluffy
+                    var colors = new [] {"pink", "orange", "green"};
+                    var accessories = new [] {"collar", "bowtie", "tshirt"};
+                    var patterns = new [] {"stars", "stripes", "hearts"};
+                    fluffyProperties.SetFluffyProperty("color", colors[Random.Range(0, 3)]);
+                    fluffyProperties.SetFluffyProperty("accessory", accessories[Random.Range(0, 3)]);
+                    fluffyProperties.SetFluffyProperty("pattern", patterns[Random.Range(0, 3)]);
+                    Debug.Log($"Generated random fluffy {fluffyProperties.Color}-{fluffyProperties.Pattern}-{fluffyProperties.Accessory}");
                     break;
             }
         }
+
+
+        #region Starting states
 
         private void SetSkipState()
         {
@@ -102,30 +143,37 @@ namespace Fluffy
             robin.SetSit(true);
             fluffysEar.gameObject.SetActive(false);
             music.Stop();
-            
+
             hideMonsters.ForEach(obj => obj.SetActive(false));
             kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = false;
 
             SetPillowsActive(false);
         }
 
-        private void SetPillowmonsterState()
+        private void IntroCompleteState()
         {
             bedlight.StartInteraction(gameObject);
             robin.Move(robinStartSpawn.position);
             bedCollider.SetActive(false);
-            
+            mainLight.intensity = .3f;
+            fluffysEar.gameObject.SetActive(false);
+            ceilingLamp.StartInteraction(gameObject);
+        }
+
+        private void SetPillowmonsterState()
+        {
+            IntroCompleteState();
+
             if (!inventory.Has("fluffyEar"))
             {
                 inventory.AddItem("fluffyEar");
             }
 
-            mainLight.intensity = .3f;
             pillowFortEntrance.gameObject.SetActive(false);
             SetPillowsActive(false);
             backgroundFX.volume = .2f;
             music.Play();
-            
+
             hideMonsters.ForEach(obj => obj.SetActive(false));
             kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = false;
 
@@ -134,17 +182,28 @@ namespace Fluffy
 
         private void SetKitchenState()
         {
-            bedlight.StartInteraction(gameObject);
-            robin.Move(robinStartSpawn.position);
-            bedCollider.SetActive(false);
-            mainLight.intensity = .3f;
-            
+            IntroCompleteState();
+
             SetPillowsActive(false);
             hideMonsters.ForEach(obj => obj.SetActive(true));
             kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = true;
 
             kitchenEntranceTrigger.Targeted += StartKitchenConvo;
         }
+
+        private void SetEndingState()
+        {
+            IntroCompleteState();
+
+            bedroomEntranceTrigger.gameObject.SetActive(true);
+
+            bedroomEntranceTrigger.Targeted += ActivateMonsterTail;
+        }
+
+        #endregion
+
+
+        #region Intro
 
         private void OnIntroEnd(PlayableDirector _)
         {
@@ -198,6 +257,11 @@ namespace Fluffy
             SetPillowmonsterState();
         }
 
+        #endregion
+
+
+        #region Pillow monster
+
         private void WaitForMayIEnter()
         {
             mayIEnter.ConversationStarted -= WaitForMayIEnter;
@@ -231,16 +295,21 @@ namespace Fluffy
             {
                 return;
             }
-            
+
             dialogue.onNodeComplete.RemoveListener(OnPillowFortComplete);
 
             SetKitchenState();
         }
 
+        #endregion
+
+
+        #region Kitchen
+
         private void StartKitchenConvo()
         {
             kitchenEntranceTrigger.Targeted -= StartKitchenConvo;
-            
+
             dialogue.StartDialogue("SlimyBrocFight");
             dialogue.onDialogueComplete.AddListener(AfterFight);
 
@@ -252,9 +321,88 @@ namespace Fluffy
             dialogue.onDialogueComplete.RemoveListener(AfterFight);
 
             camera.AdditionalXOffset = 0;
+
+            PrepareFinalScene();
         }
 
-        private IEnumerable Delay(float seconds, Action callback)
+        #endregion
+
+
+        #region Ending
+
+        private void PrepareFinalScene()
+        {
+            SetEndingState();
+        }
+
+        private void ActivateMonsterTail()
+        {
+            bedroomEntranceTrigger.Targeted -= ActivateMonsterTail;
+
+            tail.SetActive(true);
+            interactionController.Deactivate();
+            
+            StartCoroutine(Delay(1.5f, WhosThere));
+        }
+
+        private void WhosThere()
+        {
+            dialogue.StartDialogue("WhoIsThere");
+
+            dialogue.onDialogueComplete.AddListener(TalkToBedMonster);
+        }
+
+        private void TalkToBedMonster()
+        {
+            dialogue.onDialogueComplete.RemoveListener(TalkToBedMonster);
+
+            interactionPromptProvider.ShowPrompt(talkToBedMonster, "Check bed", true);
+            dialogue.onDialogueComplete.AddListener(StartFinalDialogue);
+        }
+
+        private void StartFinalDialogue()
+        {
+            dialogue.onDialogueComplete.RemoveListener(StartFinalDialogue);
+            
+            blackPanel.FadeOut(.2f);
+            StartCoroutine(Delay(.2f, () =>
+            {
+                robin.Move(talkWithBedMonsterPositíon.position);
+                
+                blackPanel.FadeIn(.2f);
+                StartCoroutine(Delay(.2f, () =>
+                {
+                    bedMonster.gameObject.SetActive(true);
+                    var fluffy = bedMonster.GetComponentInChildren<PlushyMixNMatch>();
+                    fluffy.SetBaseColor(fluffyProperties.Color);
+                    fluffy.SetAccessory(fluffyProperties.Accessory);
+                    fluffy.SetPattern(fluffyProperties.Pattern);
+                    dialogue.StartDialogue("MakingFriends");
+                    dialogue.onDialogueComplete.AddListener(RollCredits);
+                }));
+            }));
+        }
+
+        private void RollCredits()
+        {
+            dialogue.onDialogueComplete.RemoveListener(RollCredits);
+            interactionController.Deactivate();
+            
+            creditSequence.Play();
+        }
+
+        public void OpenPolaroid()
+        {
+            music.clip = pianoMusic;
+            music.Play();
+            camera.SetTarget(polaroidScreen.transform);
+            camera.Bounds = polaroidScreen;
+        }
+        
+        #endregion
+
+
+        private IEnumerator Delay(float seconds, Action callback)
         {
             yield return new WaitForSeconds(seconds);
             callback();

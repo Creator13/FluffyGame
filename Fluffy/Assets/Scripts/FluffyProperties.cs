@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using Yarn.Unity;
 
 public class FluffyProperties : MonoBehaviour
 {
+    public event Action Updated;
+    
     public string Color { get; private set; }
     public string Accessory  { get; private set; }
     public string Pattern { get; private set; }
@@ -14,7 +17,7 @@ public class FluffyProperties : MonoBehaviour
         dialogueRunner.AddCommandHandler<string, string>("SetFluffyProperty", SetFluffyProperty);
     }
 
-    private void SetFluffyProperty(string property, string value) 
+    public void SetFluffyProperty(string property, string value) 
     {
         switch (property)
         {

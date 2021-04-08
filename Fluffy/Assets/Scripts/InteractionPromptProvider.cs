@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Fluffy
 {
@@ -29,10 +28,10 @@ namespace Fluffy
             }
         }
 
-        public void ShowPrompt(Interactable target, string text)
+        public void ShowPrompt(Interactable target, string text, bool hideButtonHint = false)
         {
             this.target = target;
-            interactionPrompt.Show(text);
+            interactionPrompt.Show(text, !hideButtonHint);
         }
 
         /// <summary>
