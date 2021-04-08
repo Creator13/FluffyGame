@@ -28,7 +28,7 @@ PillowMonster: What does he look like?
 -> He is orange.
     <<SetFluffyProperty color orange>>
 Robin: Could you take a look at his ear maybe?
-<<ShowItem fluffyEar 1>>
+<<ShowItem fluffyEar 2>>
 PillowMonster: What a beautiful earpiece you have there.
 PillowMonster: Beautifully woven... and such vibrant colors! 
 PillowMonster: It just so happens that I lost a piece of my fort recently.
@@ -44,11 +44,13 @@ PillowMonster: You can't call him now either, can you?
 Robin: Well...
 PillowMonster: Give it to me! 
 -> What if I found you some pillows for your fort?
-   Robin: I'll look around the house for the brightest colors!
+    Robin: I'll look around the house for the brightest colors!
+    PillowMonster: Oh, that would be great!!
+    PillowMonster: I will need at least $pillow_count!
 -> Stay away from Fluffy's ear! I will take action if you come close!
-<<wait 1.5>>
-PillowMonster: Fine.
-PillowMonster: Bring me $pillow_count pillows then!
+    <<wait 1.5>>
+    PillowMonster: Fine.
+    PillowMonster: Bring me $pillow_count pillows then!
 ===
 title: IHavePillows
 tags:
