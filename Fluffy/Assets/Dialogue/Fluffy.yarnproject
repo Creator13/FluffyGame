@@ -1,5 +1,5 @@
 ﻿title: Program
 ---
-<<declare $pillows_needed = 2>>
+<<declare $pillows_needed = 7>>
 <<declare $pillow_count = 0>>
 ===

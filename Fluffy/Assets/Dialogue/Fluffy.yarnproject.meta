@@ -19,7 +19,7 @@ ScriptedImporter:
   - name: $pillows_needed
     type: 1
     defaultValueBool: 0
-    defaultValueNumber: 2
+    defaultValueNumber: 7
     defaultValueString: 
     description: 
     sourceYarnAsset: {instanceID: 0}
