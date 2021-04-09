@@ -1,3 +1,5 @@
 ﻿title: Program
 ---
+<<declare $pillows_needed = 2>>
+<<declare $pillow_count = 0>>
 ===

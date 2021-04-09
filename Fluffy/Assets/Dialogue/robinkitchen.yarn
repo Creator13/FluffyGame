@@ -3,18 +3,19 @@ tags:
 colorID: 0
 position: 263,31
 ---
-Slimy: You can look innocent all you want, but those brussels sprouts won't fool me.
+Slimy: You can look innocent all you want, but those brussels sprouts!
+Slimy: They won't fool me!
 Slimy: I want you to stop cleaning everything here all the time!
 Slimy: Yesterday you cleaned the sink. My sink!
 Slimy: I had such a nice collection of leftovers stashed there!
 BroccoliMom: I don't want you to keep collections!
 BroccoliMom: It's gonna smell and I don't want my whole kitchen to smell like mold.
 BroccoliMom: You think Robin is gonna like my food then?
--> Interrrupt the monsters
+-> Interrupt the monsters
    Slimy: Not now!
 -> Stay quiet
 Slimy: Robin is not gonna like your food anyway, so stop whining.
-BroccoliMom: We are in a proces! Yesterday he ate half a haricot. 
+BroccoliMom: We are in a process! Yesterday he ate half a haricot. 
 BroccoliMom: That is more than ever!
 Slimy: Point proven.
 BroccoliMom: I do not like the way you are talking to me.
@@ -25,7 +26,7 @@ Slimy: I don't care.
     Robin: Eh, Guys, Hello??
 Slimy: What do you want?
 BroccoliMom: We are kind of in the middle of something. 
-<<ShowItem fluffyear 1.5>>
+<<ShowItem fluffyEar 1.5>>
 Robin: Do you know where Fluffy is?
 BroccoliMom: Fluffy? Who is Fluffy?
 Robin: My cat! 
@@ -37,11 +38,11 @@ Robin: My cat!
     <<SetFluffyProperty accessory collar>>
 BroccoliMom: Okay, anything else I should look out for?
 Robin: Yes! 
--> His pattern has stripes
+-> He has stripes
     <<SetFluffyProperty pattern stripes>>
--> His pattern has stars
+-> He has stars
     <<SetFluffyProperty pattern stars>>
--> His pattern has hearts
+-> He has hearts
     <<SetFluffyProperty pattern hearts>>
 BroccoliMom: Slimy here should be able to help you with that
 Slimy: I can look through my pipes for you..
@@ -75,14 +76,14 @@ Robin: I think I have an idea. What if...
 -> You ask PillowMonster to be your mediator?
     Robin: You could ask PillowMonster to be your mediator. In exchange for fabric of course.
 -> You let Slimy keep his stash, and recycle it?
-    Robin: You could let Slimy hoard his scraps and make a compost bin with it. 
+    Robin: You could let Slimy hoard his scraps and make compost out of it. 
 BroccoliMom: Well.. I guess that is possible.
 BroccoliMom: Slimy, what do you think?
 Slimy: I would be okay with that.
 -> Hug eachother!
    Robin: Okay, now hug each other!!!
 -> Give eachother a kiss!
-   Robin: So if it's fixed, give eachother a good smooch!
+   Robin: So now that's settled, give eachother a good smooch!
 Slimy: Don't push it.
 Robin: Okay okay, I'm sorry.
 Robin: Can you please help me now?

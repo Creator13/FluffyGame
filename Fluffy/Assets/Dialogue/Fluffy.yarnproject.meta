@@ -21,15 +21,15 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 2
     defaultValueString: 
-    description: How many pillows does robin need to collect?
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3beb90dcc6b26c84897f4821bf748cd4, type: 3}
+    description: 
+    sourceYarnAsset: {instanceID: 0}
   - name: $pillow_count
     type: 1
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: How many pillows has robin collected?
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3beb90dcc6b26c84897f4821bf748cd4, type: 3}
+    description: 
+    sourceYarnAsset: {instanceID: 0}
   defaultLanguage: en
   languagesToSourceAssets: []
   useAddressableAssets: 0

@@ -51,6 +51,8 @@ namespace Fluffy
         [Header("Pillow Monster")] [SerializeField] private List<ItemPickup> pillows;
         [SerializeField] private RoomPortal pillowFortEntrance;
         [SerializeField] private ConversationTarget mayIEnter;
+        [SerializeField] private int pillowsNeeded;
+        [SerializeField] private ConversationTarget pillowMonster;
 
         [Header("Kitchen")] [SerializeField] private AutoTrigger kitchenEntranceTrigger;
         [SerializeField] private List<GameObject> hideMonsters;
@@ -91,6 +93,7 @@ namespace Fluffy
 
             bedroomEntranceTrigger.gameObject.SetActive(false);
             bedMonster.gameObject.SetActive(false);
+            talkToBedMonster.gameObject.SetActive(false);
 
             switch (startChapter)
             {
@@ -102,14 +105,17 @@ namespace Fluffy
 
                     break;
                 case StartChapter.Pillowmonster:
+                    IntroCompleteState();
                     SetPillowmonsterState();
 
                     break;
                 case StartChapter.Kitchen:
+                    IntroCompleteState();
                     SetKitchenState();
 
                     break;
                 case StartChapter.Ending:
+                    IntroCompleteState();
                     SetEndingState();
                     robin.Move(endingStartPosition.position);
                     
@@ -138,6 +144,7 @@ namespace Fluffy
 
         private void SetIntroState()
         {
+            mainLight.intensity = .02f;
             blackPanel.FadeOut(0);
             interactionController.Deactivate();
             robin.SetSit(true);
@@ -156,13 +163,14 @@ namespace Fluffy
             robin.Move(robinStartSpawn.position);
             bedCollider.SetActive(false);
             mainLight.intensity = .3f;
-            fluffysEar.gameObject.SetActive(false);
+            if (fluffysEar) fluffysEar.gameObject.SetActive(false);
             ceilingLamp.StartInteraction(gameObject);
         }
 
         private void SetPillowmonsterState()
         {
-            IntroCompleteState();
+            bedCollider.SetActive(false);
+            mainLight.intensity = .3f;
 
             if (!inventory.Has("fluffyEar"))
             {
@@ -182,8 +190,6 @@ namespace Fluffy
 
         private void SetKitchenState()
         {
-            IntroCompleteState();
-
             SetPillowsActive(false);
             hideMonsters.ForEach(obj => obj.SetActive(true));
             kitchenEntranceTrigger.GetComponent<Collider2D>().enabled = true;
@@ -193,8 +199,6 @@ namespace Fluffy
 
         private void SetEndingState()
         {
-            IntroCompleteState();
-
             bedroomEntranceTrigger.gameObject.SetActive(true);
 
             bedroomEntranceTrigger.Targeted += ActivateMonsterTail;
@@ -280,10 +284,10 @@ namespace Fluffy
 
         private void CheckPillowPickup()
         {
-            dialogue.variableStorage.SetValue("pillow_count", inventory.ItemCount("pillow"));
+            // dialogue.variableStorage.SetValue("pillow_count", inventory.ItemCount("pillow"));
 
-            dialogue.variableStorage.TryGetValue("pillows_needed", out float pillowCount);
-            if (Math.Abs(inventory.ItemCount("pillow") - pillowCount) < .01)
+            // dialogue.variableStorage.TryGetValue("pillows_needed", out float pillowCount);
+            if (inventory.ItemCount("pillow") == pillowsNeeded)
             {
                 dialogue.onNodeComplete.AddListener(OnPillowFortComplete);
             }
@@ -297,6 +301,7 @@ namespace Fluffy
             }
 
             dialogue.onNodeComplete.RemoveListener(OnPillowFortComplete);
+            pillowMonster.GetComponent<Collider2D>().enabled = false;
 
             SetKitchenState();
         }
@@ -342,7 +347,7 @@ namespace Fluffy
             tail.SetActive(true);
             interactionController.Deactivate();
             
-            StartCoroutine(Delay(1.5f, WhosThere));
+            StartCoroutine(Delay(2.5f, WhosThere));
         }
 
         private void WhosThere()
@@ -357,6 +362,7 @@ namespace Fluffy
             dialogue.onDialogueComplete.RemoveListener(TalkToBedMonster);
 
             interactionPromptProvider.ShowPrompt(talkToBedMonster, "Check bed", true);
+            talkToBedMonster.gameObject.SetActive(true);
             dialogue.onDialogueComplete.AddListener(StartFinalDialogue);
         }
 
@@ -412,6 +418,7 @@ namespace Fluffy
         {
             foreach (var pillow in pillows)
             {
+                if (!pillow) continue;
                 pillow.GetComponent<Collider2D>().enabled = active;
             }
         }

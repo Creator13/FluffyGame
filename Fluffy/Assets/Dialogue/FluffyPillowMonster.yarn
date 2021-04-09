@@ -1,8 +1,3 @@
-title: Declarations
----
-<<declare $pillows_needed = 2 "How many pillows does robin need to collect?">>
-<<declare $pillow_count = 0 "How many pillows has robin collected?">>
-===
 title: MayIEnter
 tags:
 colorID: 0
@@ -41,8 +36,15 @@ PillowMonster: What a beautiful earpiece you have there.
 PillowMonster: Beautifully woven... and such vibrant colors! 
 PillowMonster: It just so happens that I lost a piece of my fort recently.
 -> Ask what happened
-   Pillowmonster: How would I know?? 
-   PillowMonster: Someone just keeps stealing my pillows, the most beautiful ones even!
+    PillowMonster: How would I know?? 
+    PillowMonster: Someone just keeps stealing my pillows, the most beautiful ones even!
+    -> Be kind
+        Robin: I'm so sorry for you. 
+        Robin: I know what it's like to lose something.
+        Robin: I lost my best friend
+    -> Be mean
+        Robin: Get over yourself. 
+        Robin: Pillows aren't even alive and I lost my BEST friend
 -> Don't ask what happened
 PillowMonster: Maybe I do have some information about Fluffy.
 PillowMonster: I will give it to you if you give me that piece of wonderful ear.
@@ -54,12 +56,12 @@ PillowMonster: Give it to me!
 -> Bring pillows.
     Robin: What if I found you some pillows for your fort?
     Robin: I'll look around the house for the brightest colors!
-    PillowMonster: Oh, that would be great!!
+    PillowMonster: I suppose that will do.
     PillowMonster: I will need at least {$pillows_needed}!
 -> Stay away!
     Robin: Stay away from Fluffy's ear! 
     Robin: I will take action if you come close!
-    <<wait 1.5>>
+    <<wait 1>>
     PillowMonster: Fine.
     PillowMonster: You'll need to bring me {$pillows_needed} pillows!
     PillowMonster: Then I'll talk.
