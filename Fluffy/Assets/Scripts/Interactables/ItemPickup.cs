@@ -9,6 +9,7 @@ namespace Fluffy
         [SerializeField] private Vector2 interactionBubbleOffset;
 
         [SerializeField] private string itemName;
+        private static readonly int Pick = Animator.StringToHash("Pick");
 
         public override Vector2 InteractionBubbleOffset => interactionBubbleOffset;
 
@@ -25,6 +26,12 @@ namespace Fluffy
 
         public override void StartInteraction(GameObject interactor)
         {
+            var anim = interactor.GetComponent<Animator>();
+            if (anim)
+            {
+                anim.SetTrigger(Pick);
+            }
+            
             interactor.GetComponent<IInventory>().AddItem(itemName);
             Destroy(gameObject);
         }

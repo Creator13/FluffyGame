@@ -49,7 +49,7 @@ Bedmonster: Here, you can have him back.
 -> You keep him!
    Robin: No, you can keep him.
    Bedmonster: That is very sweet of you.. But aren't you scared?
-   Robin: I learned that monsters aren't as scary as you may think
+   Robin: I learned that monsters aren't as scary as I thought.
    <<SetEnding 0>>
 -> Thank you!
    Robin: Thank you so much!!
